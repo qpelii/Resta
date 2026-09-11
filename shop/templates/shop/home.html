@@ -3,6 +3,132 @@
 
 {% block content %}
 
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-text">
+            <h1>برای ماندن<br>ساخته شده</h1>
+            <p>محصولات چرمی رستا با دقت در جزئیات و برای استفاده‌ای که فقط یک فصل دوام نمی‌آورد ساخته می‌شوند.</p>
+            <a href="#products" class="btn btn-primary">مشاهده محصولات</a>
+        </div>
+        <div class="hero-media">
+            <div class="hero-media-panel"></div>
+            <div class="hero-media-photo" role="img" aria-label="کیف دستی چرم رستا"></div>
+        </div>
+    </div>
+</section>
 
+{% comment %} <section class="categories">
+    <div class="container categories-grid">
+        {% for cat in categories %}
+        <a href="#" class="category-card">
+            <span class="category-card-visual"></span>
+            <span class="category-card-label">{{ cat.name }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</section> {% endcomment %}
+
+<section class="promo-banner">
+    <div class="container promo-banner-inner">
+        <div class="promo-banner-text">
+            <span class="promo-eyebrow">تخفیف محدود</span>
+            <h2>تا ۳۰٪ تخفیف روی محصولات منتخب</h2>
+            <p>سریع خودتو برسون تا از دستت در نرفته!</p>
+        </div>
+        <div class="countdown" aria-label="زمان باقی‌مانده تا پایان تخفیف">
+            <div class="countdown-unit"><span class="countdown-value">۰۰</span><span class="countdown-label">ثانیه</span></div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-unit"><span class="countdown-value">۰۰</span><span class="countdown-label">دقیقه</span></div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-unit"><span class="countdown-value">۰۰</span><span class="countdown-label">ساعت</span></div>
+        </div>
+        <a href="#products" class="btn btn-outline-light">مشاهده تخفیف‌ها</a>
+    </div>
+</section>
+
+<section class="products-teaser" id="products">
+    <div class="container products-teaser-grid">
+        <a href="#" class="teaser-card teaser-card-large">
+            <span class="teaser-visual"></span>
+            <span class="teaser-caption">کیف‌های دستی</span>
+        </a>
+        <a href="#" class="teaser-card">
+            <span class="teaser-visual"></span>
+            <span class="teaser-caption">کیف پول</span>
+        </a>
+        <a href="#" class="teaser-card">
+            <span class="teaser-visual"></span>
+            <span class="teaser-caption">کمربند</span>
+        </a>
+        <a href="#" class="teaser-card">
+            <span class="teaser-visual"></span>
+            <span class="teaser-caption">اکسسوری</span>
+        </a>
+    </div>
+</section>
+
+<section class="installment-banner">
+    <div class="container installment-inner">
+        <div class="installment-text">
+            <img src="{% static 'shop/img/icon-gift.svg' %}" alt="" class="installment-badge" aria-hidden="true">
+            <span class="installment-brand">اسنپ‌پی</span>
+            <h2>امروز انتخاب کن،<br>بعداً پرداخت کن</h2>
+            <p>با اسنپ‌پی محصولات رستا رو قسطی بخر و هزینه‌ش رو در چند مرحله پرداخت کن؛ بدون اینکه کیفیت و انتخابت رو به تعویق بندازی.</p>
+            <a href="#" class="btn btn-primary">خرید قسطی با اسنپ‌پی</a>
+        </div>
+        <div class="installment-media">
+            <div class="installment-photo" role="img" aria-label="کیف دستی چرم رستا روی سنگ"></div>
+            <span class="installment-pill">پرداخت در ۴ قسط</span>
+        </div>
+    </div>
+</section>
+
+<section class="leather-showcase">
+    <div class="leather-photo" role="img" aria-label="نمای نزدیک دوخت و بند چرم رستا"></div>
+</section>
+
+<section class="story">
+    <div class="container story-inner">
+        <div class="story-text">
+            <h2>هر تکه چرم، بخشی از داستان رستاست</h2>
+            <p>از انتخاب طبیعی‌ترین نوع چرم تا دقت در جزئیات، هر محصول با دقت ساخته می‌شود؛ به‌گونه‌ای که زیبایی‌اش با گذر زمان ماندگارتر شود.</p>
+        </div>
+        <div class="story-media">
+            <div class="story-texture" role="img" aria-label="بافت نزدیک چرم طبیعی"></div>
+        </div>
+    </div>
+</section>
+
+<section class="best-sellers">
+    <div class="container">
+        <div class="section-heading">
+            <h2>پرفروش‌ترین‌ها</h2>
+            <a href="#" class="section-heading-link">مشاهده همه</a>
+        </div>
+        <div class="product-grid">
+            {% for product in best_sellers %}
+            <a href="#" class="product-card">
+                <div class="product-card-media">
+                    {% if product.discount_percent %}
+                    <span class="product-badge">{{ product.discount_percent|to_persian_digits }}٪ تخفیف</span>
+                    {% endif %}
+                </div>
+                <div class="product-card-body">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <div class="product-card-price">
+                        {% if product.discount_percent %}
+                        <span class="price-original">{{ product.price|toman }} تومان</span>
+                        <span class="price-final">{{ product.price|apply_discount:product.discount_percent|toman }} تومان</span>
+                        {% else %}
+                        <span class="price-final">{{ product.price|toman }} تومان</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}
