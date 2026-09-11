@@ -145,7 +145,7 @@ button:focus-visible {
   filter: invert(16%) sepia(20%) saturate(900%) hue-rotate(0deg) brightness(0.8);
   width: 35px;
   height: auto;
-  gap: 10px;
+  margin-right: 20px;
 }
 .main-nav{
   display: flex;
@@ -177,6 +177,22 @@ button:focus-visible {
   transform: scaleX(1);
 }
 
+.cart-count {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: var(--brown-deep);
+  color: var(--cream);
+  font-size: 0.65rem;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 700;
+}
+
 .header-actions{
   display: flex;
   align-items: center;
@@ -184,13 +200,13 @@ button:focus-visible {
 }
 
 .menu-toggle{
-  display:none;
+  display: none;
+  flex-direction: column;
   gap: 4px;
   width: 32px;
   height: 32px;
   border: none;
   background: none;
-  flex-direction: column;
   cursor: pointer;
 }
 
@@ -222,3 +238,51 @@ button:focus-visible {
 .icon-btn:hover {
   background: var(--cream-deep);
 }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+  background: var(--brown-darkest);
+  color: rgba(244, 238, 223, 0.85);
+  margin-top: var(--space-4);
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-3) var(--space-4) var(--space-3);
+}
+.footer-logo {
+  width: 34px;
+  margin-bottom: var(--space-2);
+  filter: brightness(1.3);
+}
+.footer-brand p {
+  color: rgba(244, 238, 223, 0.65);
+  font-size: 0.9rem;
+  max-width: 32ch;
+}
+.footer-col h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: var(--space-2);
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: rgba(244, 238, 223, 0.65);
+  padding: 5px 0;
+}
+.footer-col a:hover {
+  color: var(--cream);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(244, 238, 223, 0.12);
+  padding: var(--space-2) var(--space-3);
+  font-size: 0.8rem;
+  color: rgba(244, 238, 223, 0.5);
+}
+
