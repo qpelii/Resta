@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class RestaProjectConfig(AppConfig):
-    name = "resta_project"
+class ShopConfig(AppConfig):
+    name = 'shop'
