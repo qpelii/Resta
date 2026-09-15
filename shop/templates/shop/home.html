@@ -42,13 +42,13 @@
             <span class="countdown-sep">:</span>
             <div class="countdown-unit"><span class="countdown-value">۰۰</span><span class="countdown-label">ساعت</span></div>
         </div>
-        <a href="#products" class="btn btn-outline-light">مشاهده تخفیف‌ها</a>
+        <a href="#" class="btn btn-outline-light">مشاهده تخفیف‌ها</a>
     </div>
 </section>
 
 <section class="products-teaser" id="products">
     <div class="container products-teaser-grid">
-        <a href="#" class="teaser-card teaser-card-large">
+        <a href="#products" class="teaser-card teaser-card-large">
             <span class="teaser-visual"></span>
             <span class="teaser-caption">کیف‌های دستی</span>
         </a>
@@ -71,7 +71,6 @@
     <div class="container installment-inner">
         <div class="installment-text">
             <img src="{% static 'shop/img/vector_SnappPay.svg' %}" alt="" class="installment-badge" aria-hidden="true">
-            <span class="installment-brand">اسنپ‌پی</span>
             <h2>امروز انتخاب کن،<br>بعداً پرداخت کن</h2>
             <p>با اسنپ‌پی محصولات رستا رو قسطی بخر و هزینه‌ش رو در چند مرحله پرداخت کن؛ بدون اینکه کیفیت و انتخابت رو به تعویق بندازی.</p>
             <a href="#" class="btn btn-primary">خرید قسطی با اسنپ‌پی</a>
@@ -105,7 +104,7 @@
             <h2>پرفروش‌ترین‌ها</h2>
             <a href="#" class="section-heading-link">مشاهده همه</a>
         </div>
-        <div class="product-grid">
+        <div class="product-grid" id="top-sell">
             {% for product in best_sellers %}
             <a href="#" class="product-card">
                 <div class="product-card-media">
