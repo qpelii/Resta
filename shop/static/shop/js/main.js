@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
       var isOpen = nav.classList.toggle("is-open");
       toggle.classList.toggle("is-open", isOpen);
       toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      var header = document.querySelector(".header-inner");
+      if (header){
+        header.classList.toggle("site-header-nav-open", isOpen);
+      }
+      document.body.classList.toggle("nav-open", isOpen);
+      if (!isOpen) {
+        var megaItem = nav.querySelector(".nav-item.has-mega");
+        if (megaItem) 
+          megaItem.classList.remove("mega-open");
+      }
     });
   }
 
@@ -45,5 +55,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     tick();
     setInterval(tick, 1000);
+  }
+
+  // mega menu (mobile toggle)
+  var megaItem = document.querySelector(".nav-item.has-mega");
+  var megaLink = megaItem && megaItem.querySelector(".nav-link");
+  if (megaItem && megaLink) {
+    megaLink.addEventListener("click", function (e) {
+      if (window.matchMedia("(max-width: 960px)").matches) {
+        e.preventDefault();
+        megaItem.classList.toggle("mega-open");
+      }
+    });
   }
 });

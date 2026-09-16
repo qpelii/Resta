@@ -18,13 +18,50 @@
                 <img src="{% static 'shop/img/logo.svg' %}" alt="رستا" class="logo-mark">
             </a>
 
-            <nav class="main-nav">
-                <a href="#products">محصولات</a>
-                <a href="#">اکسسوری</a>
-                <a href="#top-sell">پرفروش‌ترین‌ها</a>
-                <a href="#">مجله</a>
-                <a href="#">درباره ما</a>
-            </nav>
+    <nav class="main-nav">
+        <div class="nav-item has-mega">
+            <a href="#products" class="nav-link">
+                محصولات
+                <svg class="nav-caret" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <div class="mega-menu">
+                <div class="mega-menu-columns">
+                    <div class="mega-col">
+                        <h4>کیف‌ها</h4>
+                        <a href="#">کیف دستی</a>
+                        <a href="#">کیف دوشی</a>
+                        <a href="#">کیف اداری</a>
+                        <a href="#">کیف رودوشی</a>
+                        <a href="#" class="mega-col-all">مشاهده همه کیف‌ها</a>
+                    </div>
+                    <div class="mega-col">
+                        <h4>کیف پول</h4>
+                        <a href="#">کیف پول مردانه</a>
+                        <a href="#">کیف پول زنانه</a>
+                        <a href="#">کیف کارت</a>
+                        <a href="#" class="mega-col-all">مشاهده همه کیف پول‌ها</a>
+                    </div>
+                    <div class="mega-col">
+                        <h4>اکسسوری</h4>
+                        <a href="#">کمربند</a>
+                        <a href="#">جاکلیدی</a>
+                        <a href="#">اکسسوری چرمی</a>
+                        <a href="#">ست هدیه</a>
+                        <a href="#" class="mega-col-all">مشاهده همه اکسسوری‌ها</a>
+                    </div>
+                </div>
+                <a href="#" class="mega-menu-media">
+                    <span class="mega-menu-media-visual" role="img" aria-label="نمای نزدیک چرم رستا"></span>
+                    <span class="mega-menu-media-caption">کالکشن پاییزه رستا</span>
+                </a>
+            </div>
+        </div>
+        <a href="#top-sell">پرفروش‌ترین‌ها</a>
+        <a href="#">مجله</a>
+        <a href="#">درباره ما</a>
+    </nav>
 
             <div class="header-actions">
                 <a href="#" class="icon-btn cart-btn" aria-label="سبد خرید">
