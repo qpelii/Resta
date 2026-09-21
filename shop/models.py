@@ -78,7 +78,7 @@ class Product(models.Model):
     short_description = models.CharField(
         verbose_name="توضیحات کوتاه", max_length=300
     )
-    full_description = models.TextField(verbose_name="توضیحات کامل")
+    full_description = models.TextField(verbose_name="توضیحات کامل", null=True , blank=True)
 
     price = models.PositiveIntegerField(verbose_name="قیمت (تومان)")
     discount_percent = models.PositiveIntegerField(
@@ -107,13 +107,20 @@ class Product(models.Model):
         blank=True,
         related_name="products",
     )
+    
+    specifications = models.JSONField(
+        verbose_name="مشخصات محصول",
+        default=dict,
+        blank=True,
+        help_text="به شکل json نوشته شود."
+    )
 
     main_image = models.ImageField(verbose_name="تصویر اصلی", upload_to="products/")
 
     created_at = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
 
     is_best_seller = models.BooleanField(verbose_name="پرفروش", default=False)
-    is_new = models.BooleanField(verbose_name="جدید", default=False)
+    is_new = models.BooleanField(verbose_name="جدید", default=True)
 
     class Meta:
         verbose_name = "محصول"
@@ -241,7 +248,10 @@ class Coupon(models.Model):
         help_text="اگر درصدی  ۱ تا ۱۰۰، اگر ثابت به تومان",
     )
     min_order_amount = models.PositiveIntegerField(
-        verbose_name="حداقل مبلغ سفارش", default=0
+        verbose_name="حداقل مبلغ سفارش",
+        null=True,
+        blank=True,
+        help_text="خالی بگذارید یعنی بدون لیمیت (تومان)",
     )
     start_date = models.DateTimeField(verbose_name="تاریخ شروع")
     end_date = models.DateTimeField(verbose_name="تاریخ پایان")

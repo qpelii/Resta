@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 from django.db import models
+from .managers import UserManager
 
 # regex
 mobile_validator = RegexValidator(
@@ -23,6 +24,8 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "mobile"
     REQUIRED_FIELDS = ["email"]
+    
+    objects = UserManager()
 
     class Meta:
         verbose_name = "کاربر"
