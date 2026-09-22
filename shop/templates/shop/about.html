@@ -1,0 +1,121 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}درباره ما | رستا{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'shop/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- 1. Hero -->
+<section class="about-hero">
+    <div class="container about-hero-inner">
+        <div class="about-hero-text">
+            <h1>داستان رستا</h1>
+            <p>رستا از یک کارگاه کوچک شروع شد؛ با هدف ساخت محصولاتی که به‌جای دنبال کردن مد، برای سال‌ها استفاده شدن طراحی شده‌اند.</p>
+        </div>
+        <div class="about-hero-media">
+            <div class="about-hero-photo" role="img" aria-label="فضای کارگاه رستا">
+                <img src="{% static "shop/img/pic/leather-wholesale-1400x934.jpg" %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. داستان رستا -->
+<section class="about-story">
+    <div class="container about-story-inner">
+        <div class="about-story-media">
+            <div class="about-story-photo" role="img" aria-label="دست در حال کار با چرم">
+                <img src="{% static "shop/img/pic/Frame 1.png" %}">
+            </div>
+        </div>
+        <div class="about-story-text">
+            <h2>داستان رستا</h2>
+            <p>رستا حدود چهار سال پیش از یک کارگاه کوچک شروع شد. چیزی که برای ما اهمیت داشت، فقط ساخت یک کیف یا اکسسوری چرمی نبود؛ می‌خواستیم محصولی بسازیم که کیفیتش در استفاده روزمره خودش را نشان دهد.</p>
+            <p>از انتخاب چرم تا دوخت و پرداخت نهایی، هر مرحله با دقت انجام می‌شود. ما به طراحی ساده و کاربردی اعتقاد داریم؛ محصولی که امروز زیبا باشد و چند سال بعد هم همچنان قابل استفاده.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. فلسفه رستا -->
+<section class="about-philosophy">
+    <div class="container">
+        <h2 class="about-section-title">فلسفه رستا</h2>
+        <div class="philosophy-grid">
+            <div class="philosophy-item">
+                <span class="philosophy-index">۰۱</span>
+                <h3>چرم باکیفیت</h3>
+                <p>انتخاب متریال مناسب، اولین قدم برای ساخت محصولی ماندگار است.</p>
+            </div>
+            <div class="philosophy-item">
+                <span class="philosophy-index">۰۲</span>
+                <h3>طراحی ماندگار</h3>
+                <p>دنبال ترندهایی نیستیم که چند ماه بعد قدیمی شوند.</p>
+            </div>
+            <div class="philosophy-item">
+                <span class="philosophy-index">۰۳</span>
+                <h3>ساخت با دقت</h3>
+                <p>جزئیات کوچک، تفاوت محصول خوب و معمولی را می‌سازند.</p>
+            </div>
+            <div class="philosophy-item">
+                <span class="philosophy-index">۰۴</span>
+                <h3>برای استفاده روزمره</h3>
+                <p>محصول باید زیبا باشد، اما مهم‌تر از آن باید واقعاً کاربردی باشد.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. فرآیند ساخت -->
+<section class="about-process">
+    <div class="container">
+        <h2 class="about-section-title">فرآیند ساخت</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="process-photo" role="img" aria-label="انتخاب چرم">
+                    <img src="{% static "shop/img/pic/whiskey-beat.webp" %}">
+                </div>
+                <span class="process-number">۱</span>
+                <h3>انتخاب چرم</h3>
+                <p>هر تکه چرم پیش از ورود به تولید، از نظر کیفیت و یکدستی بررسی می‌شود.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-photo" role="img" aria-label="برش چرم">
+                    <img src="{% static "shop/img/pic/atelier-creatif.webp" %}">
+                </div>
+                <span class="process-number">۲</span>
+                <h3>برش</h3>
+                <p>الگوها با دقت روی چرم برش می‌خورند تا کمترین افت کیفیت و بیشترین دقت حاصل شود.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-photo" role="img" aria-label="دوخت و مونتاژ">
+                    <img src="{% static "shop/img/pic/fabrication_820b5edb-df7e-484c-83b8-e7931956f937.avif" %}">
+                </div>
+                <span class="process-number">۳</span>
+                <h3>دوخت و مونتاژ</h3>
+                <p>اجزای محصول به‌صورت دستی دوخته و مونتاژ می‌شوند.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-photo" role="img" aria-label="پرداخت نهایی">
+                    <img src="{% static "shop/img/pic/shooting-com-5_78b41355-db6f-48f9-8402-fbd40e39ed54.webp" %}">
+                </div>
+                <span class="process-number">۴</span>
+                <h3>پرداخت نهایی</h3>
+                <p>لبه‌ها پرداخت و محصول برای کنترل کیفیت نهایی بررسی می‌شود.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+    <div class="container about-cta-inner">
+        <h2>چیزی برای ماندن پیدا کن.</h2>
+        <a href="{% url 'shop:home' %}#top-sell" class="btn btn-primary">مشاهده محصولات</a>
+    </div>
+</section>
+
+{% endblock %}

@@ -37,3 +37,6 @@ def home(request):
         "best_sellers": best_sellers,
     }
     return render(request, "shop/home.html", context)
+
+def about(request):
+    return render(request, "shop/about.html")

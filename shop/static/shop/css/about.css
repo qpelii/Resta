@@ -1,0 +1,219 @@
+/* =========================================================
+   About page — reuses design tokens defined in style.css
+   ========================================================= */
+
+.about-section-title {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  margin-bottom: var(--space-3);
+}
+
+/* ---------------------------------------------------------
+   1. Hero
+   --------------------------------------------------------- */
+.about-hero {
+  padding: var(--space-5) 0 var(--space-4);
+}
+.about-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-4);
+}
+.about-hero-text h1 {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  margin-bottom: var(--space-2);
+}
+.about-hero-text p {
+  max-width: 38ch;
+  font-size: 1.02rem;
+}
+.about-hero-media {
+  aspect-ratio: 5 / 4;
+}
+.about-hero-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 40%),
+    linear-gradient(135deg, var(--cream-deep), var(--gold) 45%, var(--leather-dark) 100%);
+  box-shadow: 0 30px 50px -20px color-mix(in srgb, var(--line) 35%, transparent);
+  overflow: hidden;
+}
+.about-hero-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ---------------------------------------------------------
+   2. داستان رستا
+   --------------------------------------------------------- */
+.about-story {
+  padding: var(--space-6) 0;
+}
+.about-story-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-5);
+}
+.about-story-media {
+  aspect-ratio: 4 / 2;
+}
+.about-story-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-l);
+  background: linear-gradient(150deg, var(--brown-mid), var(--brown-deep) 60%, var(--brown-darkest) 100%);
+  overflow: hidden;
+}
+.about-story-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-story-text h2 {
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  margin-bottom: var(--space-2);
+}
+.about-story-text p {
+  max-width: 46ch;
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+.about-story-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   3. فلسفه رستا
+   --------------------------------------------------------- */
+.about-philosophy {
+  padding: var(--space-4) 0 var(--space-6);
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+.philosophy-item {
+  padding: var(--space-3);
+  background: var(--cream-deep);
+  border-radius: var(--radius-m);
+}
+.philosophy-index {
+  display: block;
+  font-weight: 800;
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: var(--space-1);
+}
+.philosophy-item h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.philosophy-item p {
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------
+   4. فرآیند ساخت
+   --------------------------------------------------------- */
+.about-process {
+  padding: var(--space-2) 0 var(--space-6);
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+.process-step {
+  position: relative;
+}
+.process-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-m);
+  margin-bottom: var(--space-2);
+  background: linear-gradient(150deg, var(--cream-deep), var(--leather-dark) 85%);
+  overflow: hidden;
+}
+.process-photo img{
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.process-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--brown-deep);
+  color: var(--cream);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.process-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.process-step p {
+  font-size: 0.85rem;
+}
+/* ---------------------------------------------------------
+   CTA
+   --------------------------------------------------------- */
+.about-cta {
+  background: var(--brown-deep);
+  color: var(--cream);
+  padding: var(--space-6) 0;
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+.about-cta h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  color: var(--cream);
+  margin-bottom: var(--space-3);
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 960px) {
+  .about-hero-inner,
+  .about-story-inner {
+    grid-template-columns: 1fr;
+  }
+  .about-hero-media {
+    order: -1;
+    aspect-ratio: 16 / 11;
+  }
+  .about-story-media {
+    order: -1;
+  }
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .philosophy-grid,
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+  .about-story,
+  .about-philosophy,
+  .about-process,
+  .about-today,
+  .about-cta {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+}

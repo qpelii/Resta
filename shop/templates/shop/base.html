@@ -60,7 +60,7 @@
         </div>
         <a href="#top-sell">پرفروش‌ترین‌ها</a>
         <a href="#">مجله</a>
-        <a href="#">درباره ما</a>
+        <a href="{% url "shop:about" %}">درباره ما</a>
     </nav>
 
             <div class="header-actions">
@@ -74,7 +74,7 @@
                 <button class="icon-btn" aria-label="جستجو" type="button">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 </button>
-                <a href="#" class="icon-btn" aria-label="حساب کاربری">
+                <a href="{% url 'accounts:login' %}" class="icon-btn" aria-label="حساب کاربری">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.2-3.5 4.3-5.5 8-5.5s6.8 2 8 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 </a>
             </div>
@@ -99,7 +99,7 @@
             <div class="footer-col">
                 <h4>دسترسی سریع</h4>
                 <a href="#">محصولات</a>
-                <a href="#">درباره ما</a>
+                <a href="{% url "shop:about" %}">درباره ما</a>
                 <a href="#">مجله</a>
                 <a href="#">تماس با ما</a>
             </div>

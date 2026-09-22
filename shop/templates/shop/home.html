@@ -12,7 +12,7 @@
         </div>
         <div class="hero-media">
             <div class="hero-media-panel"></div>
-            <div class="hero-media-photo" role="img" aria-label="کیف دستی چرم رستا"></div>
+            <div class="hero-media-photo" role="img" aria-label="کیف دستی چرم رستا"><img src="{% static "shop/img/Pic/bestseller.webp" %}" class="hero-img"></div>
         </div>
     </div>
 </section>
@@ -49,19 +49,19 @@
 <section class="products-teaser" id="products">
     <div class="container products-teaser-grid">
         <a href="#products" class="teaser-card teaser-card-large">
-            <span class="teaser-visual"></span>
+            <img src="{% static "shop/img/Pic/TLES1410M08_2_41164fb8-552b-48f0-ad31-aa3d06d1267b.webp" %}" class="teaser-img">
             <span class="teaser-caption">کیف‌های دستی</span>
         </a>
         <a href="#" class="teaser-card">
-            <span class="teaser-visual"></span>
-            <span class="teaser-caption">کیف پول</span>
-        </a>
-        <a href="#" class="teaser-card">
-            <span class="teaser-visual"></span>
+            <img src="{% static "shop/img/Pic/RifvjBA3a_mid 1.png" %}" class="teaser-img">
             <span class="teaser-caption">کمربند</span>
         </a>
         <a href="#" class="teaser-card">
-            <span class="teaser-visual"></span>
+            <img src="{% static "shop/img/Pic/EDITO_PE26_STILL-LIFE_T2_16-9_012_551 1.png" %}" class="teaser-img">
+            <span class="teaser-caption">کیف پول</span>
+        </a>
+        <a href="#" class="teaser-card">
+            <img src="{% static "shop/img/Pic/Capsule_Pro_3_CT_1 1.png" %}" class="teaser-img">
             <span class="teaser-caption">اکسسوری</span>
         </a>
     </div>
@@ -76,14 +76,16 @@
             <a href="#" class="btn btn-primary">خرید قسطی با اسنپ‌پی</a>
         </div>
         <div class="installment-media">
-            <div class="installment-photo" role="img" aria-label="کیف دستی چرم رستا روی سنگ"></div>
+            <div class="installment-photo" role="img" aria-label="کیف دستی چرم رستا روی سنگ"><img src="{% static "shop/img/Pic/07_CLE3_1155_2000x.webp" %}" class="installment-img"></div>
             <span class="installment-pill">پرداخت در ۴ قسط</span>
         </div>
     </div>
 </section>
 
 <section class="leather-showcase">
-    <div class="leather-photo" role="img" aria-label="نمای نزدیک دوخت و بند چرم رستا"></div>
+    <div class="leather-photo" role="img">
+        <img src="{% static "shop/img/Pic/TAPO4000N01_14deaa03-1f20-49af-9d37-0582a9c1caec.webp" %}" class="section-control-img">
+    </div>  
 </section>
 
 <section class="story">
@@ -93,7 +95,9 @@
             <p>از انتخاب طبیعی‌ترین نوع چرم تا دقت در جزئیات، هر محصول با دقت ساخته می‌شود؛ به‌گونه‌ای که زیبایی‌اش با گذر زمان ماندگارتر شود.</p>
         </div>
         <div class="story-media">
-            <div class="story-texture" role="img" aria-label="بافت نزدیک چرم طبیعی"></div>
+            <div class="story-texture" role="img" aria-label="بافت نزدیک چرم طبیعی">
+                            <img src="{% static "shop/img/Pic/visuel_cuir_pleine_fleur_9e2274a8-b919-4da0-9943-7cfbe448e140.webp" %}" class="texture-img">
+            </div>
         </div>
     </div>
 </section>
@@ -108,7 +112,7 @@
             {% for product in best_sellers %}
             <a href="#" class="product-card">
                 <div class="product-card-media">
-                    <img src="https://croco.ir/wp-content/uploads/2026/06/new-adli-women-leather-bag-front-view-1-510x714.webp" class="product-img">
+                    <img src="{% static "shop/img/pic/253-3.ipg" %}" class="product-img">
                     {% if product.discount_percent %}
                     <span class="product-badge">{{ product.discount_percent|to_persian_digits }}٪ تخفیف</span>
                     {% endif %}
