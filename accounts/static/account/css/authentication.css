@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.main-authentication {
+    position: absolute;
+    width: 480px;
+    height: 460px;
+    padding: var(--space-4);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: color-mix(in srgb, var(--cream) 20%, transparent);
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius-l);
+
+    text-align: center;
+    color: var(--cream);
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.header-login {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 60px;
+}
+
+.back-btn {
+    position: absolute;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+    border: none;
+    border-radius: 50px;
+
+    background: color-mix(in srgb, var(--cream) 40%, transparent);
+
+    cursor: pointer;
+}
+
+.logo-on-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon {
+    width: 90px;
+    margin-top: var(--space-1);
+}
+
+.back-icon {
+    rotate: 180deg;
+}
+
+/* =========================================================
+   Title
+   ========================================================= */
+
+.main-authentication h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: var(--space-3) 0 var(--space-2);
+    color: var(--cream);
+}
+
+/* =========================================================
+   Errors (non_field_errors) 
+   ========================================================= */
+.auth-alert {
+    background: color-mix(in srgb, #b3372c 25%, transparent);
+    border: 1px solid color-mix(in srgb, #b3372c 45%, transparent);
+    color: #fff0ee;
+    border-radius: var(--radius-s);
+    padding: var(--space-2);
+    margin-bottom: var(--space-2);
+    font-size: 0.85rem;
+    text-align: center;
+}
+.auth-alert p {
+    margin: 0;
+    color: inherit;
+}
+
+/* =========================================================
+   Form
+   ========================================================= */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form-hint {
+    font-size: 0.85rem;
+    color: color-mix(in srgb, var(--cream) 85%, transparent);
+    margin-bottom: var(--space-2);
+}
+
+.form-group {
+    margin-bottom: var(--space-1);
+    text-align: right;
+}
+
+.mobile-input {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--cream) 60%, transparent);
+    background: transparent;
+    padding: var(--space-1) 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--cream);
+}
+.mobile-input::placeholder {
+    color: color-mix(in srgb, var(--cream) 60%, transparent);
+}
+.mobile-input:focus {
+    outline: none;
+    border-bottom-color: var(--cream);
+}
+
+.form-error {
+    color: #ffb4a8;
+    font-size: 0.78rem;
+    margin: 4px 0 0;
+    text-align: center;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--cream) 60%, transparent);
+    background: transparent;
+    padding: var(--space-1) 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--cream);
+}
+.form-input::placeholder {
+    color: color-mix(in srgb, var(--cream) 60%, transparent);
+}
+.form-input:focus {
+    outline: none;
+    border-bottom-color: var(--cream);
+}
+
+.change-mobile-link {
+    color: var(--cream);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.login-submit {
+    width: 100%;
+    background: color-mix(in srgb, var(--cream) 75%, transparent);
+    color: var(--ink);
+    margin: var(--space-3) 0 var(--space-2);
+}
+.login-submit:hover {
+    background: color-mix(in srgb, var(--cream) 55%, transparent);
+}
+
+.terms-text {
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--cream) 80%, transparent);
+    margin: 0;
+}

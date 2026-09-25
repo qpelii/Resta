@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رستا | ثبت‌نام</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/authentication.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'shop/img/logo.svg' %}">
+</head>
+<body style="background-image: url('{% static "shop/img/Pic/TLES1410M08_2_41164fb8-552b-48f0-ad31-aa3d06d1267b.webp" %}');">
+    <div class="main-authentication container">
+        <header class="header-login">
+            <div>
+                <a href="{% url 'accounts:login' %}" class="back-btn" aria-label="ویرایش شماره موبایل">
+                    <img src="{% static 'shop/img/back.svg' %}" class="back-icon" alt="بازگشت">
+                </a>
+            </div>
+            <div class="header-box-logo">
+                <div class="logo-on-login">
+                    <img src="{% static 'shop/img/logo.svg' %}" class="logo-icon" alt="رستا">
+                </div>
+            </div>
+        </header>
+
+        <h1>ساخت حساب جدید</h1>
+
+        <p class="form-hint">
+        {% comment %} TODO {% endcomment %}
+            شماره {{ mobile }}
+        </p>
+
+        <p class="terms-text">
+            <a href="{% url 'accounts:login' %}" class="change-mobile-link">بازگشت به مرحله قبل</a>
+        </p>
+    </div>
+
+    <script src="{% static 'shop/js/main.js' %}"></script>
+</body>
+</html>
