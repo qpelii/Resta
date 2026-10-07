@@ -2,7 +2,7 @@ from django.contrib.auth.models import BaseUserManager
 
 
 class UserManager(BaseUserManager):
-
+    use_in_migrations = True
     def create_user(self, mobile, email, password=None, **extra_fields):
         if not mobile:
             raise ValueError("Mobile is required")

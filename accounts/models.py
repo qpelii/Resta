@@ -11,6 +11,7 @@ mobile_validator = RegexValidator(
 
 
 class User(AbstractUser):
+    username = None
     email = models.EmailField(
         verbose_name="ایمیل",
         unique=True,
@@ -24,6 +25,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "mobile"
     REQUIRED_FIELDS = ["email"]
+    is_active = models.BooleanField(verbose_name="وضعیت کاربر", default=True)
     
     objects = UserManager()
 
@@ -35,7 +37,6 @@ class User(AbstractUser):
         full_name = f"{self.first_name} {self.last_name}".strip()
         return full_name or self.mobile
 
-
 class Address(models.Model):
     user = models.ForeignKey(
         User,
@@ -43,16 +44,16 @@ class Address(models.Model):
         on_delete=models.CASCADE,
         related_name="address",
     )
-    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150)
+    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150 ,blank=True, default="",)
     receiver_phone = models.CharField(
         verbose_name="شماره تماس گیرنده",
         max_length=11,
         validators=[mobile_validator],
-    )
-    province = models.CharField(verbose_name="استان", max_length=100)
-    city = models.CharField(verbose_name="شهر", max_length=100)
-    full_address = models.TextField(verbose_name="آدرس کامل")
-    postal_code = models.CharField(verbose_name="کد پستی", max_length=10)
+        blank=True, default="",)
+    province = models.CharField(verbose_name="استان", max_length=100 ,blank=True, default="",)
+    city = models.CharField(verbose_name="شهر", max_length=100 ,blank=True, default="",)
+    full_address = models.TextField(verbose_name="آدرس کامل" ,blank=True, default="",)
+    postal_code = models.CharField(verbose_name="کد پستی", max_length=10 ,blank=True, default="",)
 
     class Meta:
         verbose_name = "آدرس"

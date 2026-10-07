@@ -33,15 +33,6 @@ class Order(models.Model):
         choices=Status.choices,
         default=Status.PENDING,
     )
-
-    shipping_address = models.ForeignKey(
-        Address,
-        verbose_name="آدرس ارسال",
-        on_delete=models.PROTECT,
-        related_name="orders",
-        null=False,
-        blank=False,
-    )
     coupon = models.ForeignKey(
         Coupon,
         verbose_name="کد تخفیف استفاده‌شده",
@@ -50,13 +41,19 @@ class Order(models.Model):
         null=True,
         blank=True,
     )
+    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150)
+    receiver_phone = models.CharField(verbose_name="شماره تماس", max_length=11)
+    province = models.CharField(verbose_name="استان", max_length=100)
+    city = models.CharField(verbose_name="شهر", max_length=100)
+    full_address = models.TextField(verbose_name="آدرس کامل")
+    postal_code = models.CharField(verbose_name="کد پستی", max_length=10)
 
     total_amount = models.PositiveIntegerField(
-        verbose_name="مبلغ کل", help_text="جمع قیمت آیتم‌ها پیش از تخفیف"
+        verbose_name="مبلغ کل", help_text="جمع قیمت آیتم‌ها پیش از تخفیف",editable=False, 
     )
-    discount_amount = models.PositiveIntegerField(verbose_name="مبلغ تخفیف", default=0)
-    shipping_cost = models.PositiveIntegerField(verbose_name="هزینه ارسال", default=0)
-    final_amount = models.PositiveIntegerField(verbose_name="مبلغ نهایی")
+    discount_amount = models.PositiveIntegerField(verbose_name="مبلغ تخفیف", default=0 ,editable=False)
+    shipping_cost = models.PositiveIntegerField(verbose_name="هزینه ارسال", default=0 ,editable=False)
+    final_amount = models.PositiveIntegerField(verbose_name="مبلغ نهایی" ,editable=False)
 
     created_at = models.DateTimeField(verbose_name="تاریخ ثبت", auto_now_add=True)
 
@@ -115,10 +112,10 @@ class OrderItem(models.Model):
     def save(self, *args, **kwargs):
         if not self.product_name_snapshot:
             self.product_name_snapshot = self.product.name
-        if not self.final_amount:
-            self.final_amount = self.price_at_purchase * self.quantity
         if not self.price_at_purchase:
             self.price_at_purchase = self.product.price
+        if not self.final_amount:
+            self.final_amount = self.price_at_purchase * self.quantity
         super().save(*args, **kwargs)
 
 
@@ -127,7 +124,12 @@ class Payment(models.Model):
         PENDING = "pending", "در انتظار"
         SUCCESS = "success", "موفق"
         FAILED = "failed", "ناموفق"
-
+        
+    class Gateway(models.TextChoices):
+        ZARINPAL = "zarinpal", "زرین‌پال"
+        SNAPPAY = "snappay", "اسنپ‌پی"
+        MELLAT = "mellat", "بانک ملت"
+        
     order = models.ForeignKey(
         Order,
         verbose_name="سفارش",
@@ -144,10 +146,11 @@ class Payment(models.Model):
         choices=Status.choices,
         default=Status.PENDING,
     )
+
     gateway = models.CharField(
         verbose_name="درگاه پرداخت",
         max_length=50,
-        help_text="مثال: زرین‌پال و ...",
+        choices=Gateway.choices,
     )
     paid_at = models.DateTimeField(verbose_name="تاریخ پرداخت", null=True, blank=True)
     created_at = models.DateTimeField(verbose_name="تاریخ ثبت", auto_now_add=True)

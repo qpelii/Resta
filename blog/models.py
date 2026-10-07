@@ -19,6 +19,7 @@ class Post(models.Model):
         null=True,
         related_name="posts",
     )
+    is_published = models.BooleanField(verbose_name="وضعیت انتشار", default=True)
     published_at = models.DateTimeField(verbose_name="تاریخ انتشار", auto_now=True)
 
     class Meta:

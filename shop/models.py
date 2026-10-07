@@ -282,7 +282,9 @@ class Coupon(models.Model):
             return False
         if self.usage_limit is not None and self.used_count >= self.usage_limit:
             return False
-        if order_amount is not None and order_amount < self.min_order_amount:
+        if (order_amount is not None 
+        and self.min_order_amount is not None 
+        and order_amount < self.min_order_amount):
             return False
         return True
 
