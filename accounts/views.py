@@ -14,14 +14,14 @@ def mobile_entry(request):
     if request.method == "POST" and form.is_valid():
         mobile = form.cleaned_data["mobile"]
         request.session["pending_mobile"] = mobile
-        request.session["pending_next"] = request.POST.get("next", "")
+        request.session["pending_next"] = request.GET.get("next", "")
         if User.objects.filter(mobile=mobile).exists():
             return redirect("accounts:login_password")
         return redirect("accounts:register")
 
     context = {
         "form": form,
-        "next": request.POST.get("next", ""),#TODO
+        "next": request.GET.get("next", ""),#TODO
     }
     return render(request, "accounts/login.html", context)
 
