@@ -68,7 +68,7 @@ body {
 }
 
 .logo-icon {
-    width: 90px;
+    width: 8vh;
     margin-top: var(--space-1);
 }
 
@@ -83,7 +83,7 @@ body {
 .main-authentication h1 {
     font-size: 1.4rem;
     font-weight: 700;
-    margin: var(--space-3) 0 var(--space-2);
+    margin: var(--space-3) 0;
     color: var(--cream);
 }
 
@@ -193,4 +193,14 @@ body {
     font-size: 0.75rem;
     color: color-mix(in srgb, var(--cream) 80%, transparent);
     margin: 0;
+}
+
+@media (max-width: 600px){
+    .main-authentication{
+        width: 100%;
+        border-radius: 0;
+    }
+    .login-icon{
+        size: 4vh;
+    }
 }

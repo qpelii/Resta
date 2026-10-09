@@ -35,8 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // set time offer
     var endOfDay = new Date();
-    endOfDay.setFullYear(2026,8,20);//set date TODO:set in admin panel
-    endOfDay.setHours(24, 0, 0, 0);
+    endOfDay.setHours(22, 0, 0, 0);// today, 10PM
 
     var hoursEl = countdown.querySelector(".countdown-unit:nth-child(5) .countdown-value");
     var minutesEl = countdown.querySelector(".countdown-unit:nth-child(3) .countdown-value");

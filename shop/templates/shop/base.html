@@ -28,30 +28,29 @@
             </a>
             <div class="mega-menu">
                 <div class="mega-menu-columns">
-                    <div class="mega-col">
-                        <h4>کیف‌ها</h4>
-                        <a href="#">کیف دستی</a>
-                        <a href="#">کیف دوشی</a>
-                        <a href="#">کیف اداری</a>
-                        <a href="#">کیف رودوشی</a>
-                        <a href="#" class="mega-col-all">مشاهده همه کیف‌ها</a>
-                    </div>
-                    <div class="mega-col">
-                        <h4>کیف پول</h4>
-                        <a href="#">کیف پول مردانه</a>
-                        <a href="#">کیف پول زنانه</a>
-                        <a href="#">کیف کارت</a>
-                        <a href="#" class="mega-col-all">مشاهده همه کیف پول‌ها</a>
-                    </div>
-                    <div class="mega-col">
-                        <h4>اکسسوری</h4>
-                        <a href="#">کمربند</a>
-                        <a href="#">جاکلیدی</a>
-                        <a href="#">اکسسوری چرمی</a>
-                        <a href="#">ست هدیه</a>
-                        <a href="#" class="mega-col-all">مشاهده همه اکسسوری‌ها</a>
-                    </div>
+                    {% for category in mega_menu_categories %}
+                        <div class="mega-col">
+                            <h4>{{ category.name }}</h4>
+                            
+                            {% for child in category.children.all %}
+                                {% if child.is_active %}
+                                    <a href="#">
+                                        {% comment %} TODO {% endcomment %}
+                                    {% comment %} <a href="{% url 'shop:category_detail' child.slug %}">TODO {% endcomment %}
+                                        {{ child.name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                            
+                            <a href="#" class="mega-col-all">
+                                {% comment %} TODO {% endcomment %}
+                            {% comment %} <a href="{% url 'shop:category_detail' category.slug %}" class="mega-col-all"> {% endcomment %}
+                                مشاهده همه {{ category.name }}
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
+                
                 <a href="#" class="mega-menu-media">
                     <span class="mega-menu-media-visual" role="img" aria-label="نمای نزدیک چرم رستا"></span>
                     <span class="mega-menu-media-caption">کالکشن پاییزه رستا</span>
@@ -74,7 +73,7 @@
                 <button class="icon-btn" aria-label="جستجو" type="button">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 </button>
-                <a href="{% url 'accounts:login' %}" class="icon-btn" aria-label="حساب کاربری">
+                <a href="{% url 'accounts:login' %}?next={{ request.get_full_path|urlencode }}" class="icon-btn" aria-label="حساب کاربری">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c1.2-3.5 4.3-5.5 8-5.5s6.8 2 8 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 </a>
             </div>

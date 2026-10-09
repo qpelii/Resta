@@ -37,6 +37,7 @@ class Category(models.Model):
         on_delete=models.CASCADE,
         related_name="children",
     )
+    category_img = models.ImageField(verbose_name="تصویر اصلی", upload_to="category/", null=True, blank=True)
     is_active = models.BooleanField(verbose_name="فعال", default=True)
     order = models.PositiveIntegerField(verbose_name="ترتیب نمایش", default=0)
 

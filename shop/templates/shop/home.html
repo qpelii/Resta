@@ -16,18 +16,6 @@
         </div>
     </div>
 </section>
-
-{% comment %} <section class="categories">
-    <div class="container categories-grid">
-        {% for cat in categories %}
-        <a href="#" class="category-card">
-            <span class="category-card-visual"></span>
-            <span class="category-card-label">{{ cat.name }}</span>
-        </a>
-        {% endfor %}
-    </div>
-</section> {% endcomment %}
-
 <section class="promo-banner">
     <div class="container promo-banner-inner">
         <div class="promo-banner-text">
@@ -48,22 +36,19 @@
 
 <section class="products-teaser" id="products">
     <div class="container products-teaser-grid">
-        <a href="#products" class="teaser-card teaser-card-large">
-            <img src="{% static "shop/img/Pic/TLES1410M08_2_41164fb8-552b-48f0-ad31-aa3d06d1267b.webp" %}" class="teaser-img">
-            <span class="teaser-caption">کیف‌های دستی</span>
-        </a>
-        <a href="#" class="teaser-card">
-            <img src="{% static "shop/img/Pic/RifvjBA3a_mid 1.png" %}" class="teaser-img">
-            <span class="teaser-caption">کمربند</span>
-        </a>
-        <a href="#" class="teaser-card">
-            <img src="{% static "shop/img/Pic/EDITO_PE26_STILL-LIFE_T2_16-9_012_551 1.png" %}" class="teaser-img">
-            <span class="teaser-caption">کیف پول</span>
-        </a>
-        <a href="#" class="teaser-card">
-            <img src="{% static "shop/img/Pic/Capsule_Pro_3_CT_1 1.png" %}" class="teaser-img">
-            <span class="teaser-caption">اکسسوری</span>
-        </a>
+
+        {% for cat in categories %}
+            {% if forloop.first %}
+            <a href="#products" class="teaser-card teaser-card-large">
+            {% else %}
+            <a href="#" class="teaser-card">
+            {% endif %}
+                {% if cat.category_img %}
+                    <img src="{{ cat.category_img.url }}" class="teaser-img" alt="{{ cat.name }}">
+                {% endif %}
+                <span class="teaser-caption">{{ cat.name }}</span>
+            </a>
+        {% endfor %}
     </div>
 </section>
 
@@ -110,26 +95,31 @@
         </div>
         <div class="product-grid" id="top-sell">
             {% for product in best_sellers %}
+            {% comment %} <a href="{% url 'shop:product_detail' product.slug %}" class="product-card"> {% endcomment %}
             <a href="#" class="product-card">
                 <div class="product-card-media">
-                    <img src="{% static "shop/img/Pic/253-3.jpg" %}" class="product-img">
+                    {% if product.main_image %}
+                        <img src="{{ product.main_image.url }}" class="product-img" alt="{{ product.name }}">
+                    {% endif %}
                     {% if product.discount_percent %}
-                    <span class="product-badge">{{ product.discount_percent|to_persian_digits }}٪ تخفیف</span>
+                        <span class="product-badge">{{ product.discount_percent|to_persian_digits }}٪ تخفیف</span>
                     {% endif %}
                 </div>
                 <div class="product-card-body">
                     <h3>{{ product.name }}</h3>
-                    <p>{{ product.description }}</p>
+                    <p>{{ product.short_description }}</p>
                     <div class="product-card-price">
                         {% if product.discount_percent %}
-                        <span class="price-original">{{ product.price|toman }} تومان</span>
-                        <span class="price-final">{{ product.price|apply_discount:product.discount_percent|toman }} تومان</span>
+                            <span class="price-original">{{ product.price|toman }} تومان</span>
+                            <span class="price-final">{{ product.final_price|toman }} تومان</span>
                         {% else %}
-                        <span class="price-final">{{ product.price|toman }} تومان</span>
+                            <span class="price-final">{{ product.price|toman }} تومان</span>
                         {% endif %}
                     </div>
                 </div>
             </a>
+            {% empty %}
+                <p>هنوز محصولی به‌عنوان پرفروش ثبت نشده.</p>
             {% endfor %}
         </div>
     </div>

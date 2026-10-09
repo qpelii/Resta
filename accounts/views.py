@@ -21,7 +21,7 @@ def mobile_entry(request):
 
     context = {
         "form": form,
-        "next": request.GET.get("next", ""),#TODO
+        "next": request.POST.get("next", ""),#TODO
     }
     return render(request, "accounts/login.html", context)
 
@@ -36,7 +36,8 @@ def login_password(request):
         if form.is_valid():
             login(request, form.get_user())
             del request.session["pending_mobile"]
-            next_url = request.POST.get("next") or ""
+            next_url = request.session.get("pending_next", "")
+            request.session.pop("pending_next", None)
             if not url_has_allowed_host_and_scheme(
                 next_url, allowed_hosts={request.get_host()},
                 require_https=request.is_secure()

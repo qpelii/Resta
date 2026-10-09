@@ -44,19 +44,19 @@ class Address(models.Model):
         on_delete=models.CASCADE,
         related_name="address",
     )
-    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150 ,blank=True, default="",)
+    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150)
     receiver_phone = models.CharField(
         verbose_name="شماره تماس گیرنده",
         max_length=11,
-        validators=[mobile_validator],
-        blank=True, default="",)
-    province = models.CharField(verbose_name="استان", max_length=100 ,blank=True, default="",)
-    city = models.CharField(verbose_name="شهر", max_length=100 ,blank=True, default="",)
-    full_address = models.TextField(verbose_name="آدرس کامل" ,blank=True, default="",)
-    postal_code = models.CharField(verbose_name="کد پستی", max_length=10 ,blank=True, default="",)
+        validators=[mobile_validator],)
+    province = models.CharField(verbose_name="استان", max_length=100)
+    city = models.CharField(verbose_name="شهر", max_length=100)
+    full_address = models.TextField(verbose_name="آدرس کامل")
+    postal_code = models.CharField(verbose_name="کد پستی", max_length=10)
 
     class Meta:
         verbose_name = "آدرس"
+        verbose_name_plural = "آدرس ها"
 
     def __str__(self):
         return f"{self.receiver_name} - {self.city} - {self.full_address}"

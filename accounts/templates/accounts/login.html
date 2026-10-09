@@ -14,11 +14,10 @@
     <div class="main-authentication container">
         <header class="header-login">
 
-            <button type="button" class="back-btn" onclick="history.back()">
+            <a href="{{ next|default:'/' }}" class="back-btn" aria-label="بازگشت">
                 {% comment %} TODO گرفتن کوئری فعلی برای بک {% endcomment %}
                 <img src="{% static 'shop/img/back.svg' %}" class="back-icon" alt="بازگشت">
-            </button>
-
+            </a>
             <div class="logo-on-login">
                 <img src="{% static 'shop/img/logo.svg' %}" class="logo-icon" alt="رستا">
             </div>

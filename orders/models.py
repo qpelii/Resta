@@ -41,12 +41,12 @@ class Order(models.Model):
         null=True,
         blank=True,
     )
-    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150)
-    receiver_phone = models.CharField(verbose_name="شماره تماس", max_length=11)
-    province = models.CharField(verbose_name="استان", max_length=100)
-    city = models.CharField(verbose_name="شهر", max_length=100)
-    full_address = models.TextField(verbose_name="آدرس کامل")
-    postal_code = models.CharField(verbose_name="کد پستی", max_length=10)
+    receiver_name = models.CharField(verbose_name="نام گیرنده", max_length=150 ,blank=True, default="",)
+    receiver_phone = models.CharField(verbose_name="شماره تماس", max_length=11 ,blank=True, default="",)
+    province = models.CharField(verbose_name="استان", max_length=100 ,blank=True, default="",)
+    city = models.CharField(verbose_name="شهر", max_length=100 ,blank=True, default="",)
+    full_address = models.TextField(verbose_name="آدرس کامل" ,blank=True, default="",)
+    postal_code = models.CharField(verbose_name="کد پستی", max_length=10 ,blank=True, default="",)
 
     total_amount = models.PositiveIntegerField(
         verbose_name="مبلغ کل", help_text="جمع قیمت آیتم‌ها پیش از تخفیف",editable=False, 

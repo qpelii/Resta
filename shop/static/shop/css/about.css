@@ -211,6 +211,7 @@
   .about-story,
   .about-philosophy,
   .about-process,
+  .story,  
   .about-cta {
     padding-top: var(--space-4);
     padding-bottom: var(--space-4);
